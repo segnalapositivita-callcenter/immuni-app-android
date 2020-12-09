@@ -22,6 +22,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.observe
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.google.android.material.appbar.AppBarLayout
 import it.ministerodellasalute.immuni.R
 import it.ministerodellasalute.immuni.extensions.activity.loading
@@ -30,14 +31,11 @@ import it.ministerodellasalute.immuni.extensions.view.gone
 import it.ministerodellasalute.immuni.extensions.view.setSafeOnClickListener
 import it.ministerodellasalute.immuni.extensions.view.visible
 import it.ministerodellasalute.immuni.util.ProgressDialogFragment
-import kotlin.math.abs
 import kotlinx.android.synthetic.main.otp_fragment.*
-import kotlinx.android.synthetic.main.otp_fragment.appBar
-import kotlinx.android.synthetic.main.otp_fragment.navigationIcon
-import kotlinx.android.synthetic.main.otp_fragment.toolbarSeparator
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.getViewModel
+import kotlin.math.abs
 
 class OtpFragment : Fragment(R.layout.otp_fragment) {
 
@@ -57,6 +55,10 @@ class OtpFragment : Fragment(R.layout.otp_fragment) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        val args = navArgs<OtpFragmentArgs>()
+        healthcareAuthorizationWarning.text = args.value.healthcareAuthorizationWarning
+
 
         (activity as? AppCompatActivity)?.setLightStatusBar(resources.getColor(R.color.background_darker))
         // Warning: if you get the sharedViewModel, then every time you create this fragment from

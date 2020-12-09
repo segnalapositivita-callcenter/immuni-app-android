@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
   ~ Copyright (C) 2020 Presidenza del Consiglio dei Ministri.
   ~ Please refer to the AUTHORS file for more information.
   ~ This program is free software: you can redistribute it and/or modify
@@ -31,26 +30,46 @@
         tools:layout="@layout/settings_fragment" />
 
     <fragment
+        android:id="@+id/chooseDataUploadMode"
+        android:name="it.ministerodellasalute.immuni.ui.otp.ChooseDataUploadMode"
+        android:label="ChooseTypeUpload"
+        tools:layout="@layout/choose_data_upload_mode" />
+
+
+    <action
+        android:id="@+id/action_choose_data_upload_mode"
+        app:destination="@id/chooseDataUploadMode"
+        app:enterAnim="@anim/slide_in_right"
+        app:exitAnim="@anim/slide_out_left"
+        app:popEnterAnim="@anim/slide_in_left"
+        app:popExitAnim="@anim/slide_out_right" />
+
+    <fragment
         android:id="@+id/otpFragment"
         android:name="it.ministerodellasalute.immuni.ui.otp.OtpFragment"
         android:label="UploadVerification"
-        tools:layout="@layout/otp_fragment" />
+        tools:layout="@layout/otp_fragment">
+        <argument
+            android:name="healthcareAuthorizationWarning"
+            app:argType="string"
+            app:nullable="false" />
+    </fragment>
 
     <action
         android:id="@+id/action_upload_data"
+        app:destination="@id/otpFragment"
         app:enterAnim="@anim/slide_in_right"
         app:exitAnim="@anim/slide_out_left"
         app:popEnterAnim="@anim/slide_in_left"
-        app:popExitAnim="@anim/slide_out_right"
-        app:destination="@id/otpFragment" />
+        app:popExitAnim="@anim/slide_out_right" />
 
     <action
         android:id="@+id/action_faq"
+        app:destination="@id/faq_nav"
         app:enterAnim="@anim/slide_in_right"
         app:exitAnim="@anim/slide_out_left"
         app:popEnterAnim="@anim/slide_in_left"
-        app:popExitAnim="@anim/slide_out_right"
-        app:destination="@id/faq_nav" />
+        app:popExitAnim="@anim/slide_out_right" />
 
     <activity
         android:id="@+id/uploadActivity"
@@ -65,7 +84,7 @@
 
     <action
         android:id="@+id/action_upload_activity"
-        app:destination="@id/uploadActivity"/>
+        app:destination="@id/uploadActivity" />
 
     <activity
         android:id="@+id/onboardingActivity"
@@ -74,12 +93,12 @@
         tools:layout="@layout/onboarding_view_pager_fragment">
         <argument
             android:name="isEditingProvince"
-            app:argType="boolean"/>
+            app:argType="boolean" />
     </activity>
 
     <action
         android:id="@+id/action_onboarding_activity"
-        app:destination="@id/onboardingActivity"/>
+        app:destination="@id/onboardingActivity" />
 
     <action
         android:id="@+id/action_webview"
@@ -98,14 +117,16 @@
         android:id="@+id/action_privacy"
         app:destination="@id/privacy" />
 
-    <dialog android:id="@+id/support"
+    <dialog
+        android:id="@+id/support"
         android:name="it.ministerodellasalute.immuni.ui.support.SupportDialogFragment"
         tools:layout="@layout/support_dialog" />
     <action
         android:id="@+id/action_support"
         app:destination="@id/support" />
 
-    <dialog android:id="@+id/howToUploadPositive"
+    <dialog
+        android:id="@+id/howToUploadPositive"
         android:name="it.ministerodellasalute.immuni.ui.howtouploadpositive.HowToUploadPositiveDialogFragment"
         tools:layout="@layout/how_to_upload_positive_dialog" />
 
