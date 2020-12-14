@@ -17,10 +17,12 @@ package it.ministerodellasalute.immuni.ui.otp
 
 import android.os.Bundle
 import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import it.ministerodellasalute.immuni.R
 import it.ministerodellasalute.immuni.SettingsNavDirections
+import it.ministerodellasalute.immuni.extensions.activity.setLightStatusBar
 import it.ministerodellasalute.immuni.extensions.view.setSafeOnClickListener
 import kotlinx.android.synthetic.main.choose_data_upload_mode.*
 
@@ -40,6 +42,7 @@ class ChooseDataUploadMode : Fragment(R.layout.choose_data_upload_mode) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        (activity as? AppCompatActivity)?.setLightStatusBar(resources.getColor(R.color.background_darker))
 
         navigationIcon.setSafeOnClickListener {
             findNavController().popBackStack()
