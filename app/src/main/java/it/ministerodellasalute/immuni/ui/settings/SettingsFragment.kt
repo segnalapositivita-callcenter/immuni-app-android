@@ -24,6 +24,7 @@ import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.appbar.AppBarLayout
 import it.ministerodellasalute.immuni.BuildConfig
+import it.ministerodellasalute.immuni.DataUploadDirections
 import it.ministerodellasalute.immuni.R
 import it.ministerodellasalute.immuni.SettingsNavDirections
 import it.ministerodellasalute.immuni.extensions.activity.loading
@@ -59,7 +60,7 @@ class SettingsFragment : Fragment(R.layout.settings_fragment), ConfirmationDialo
         // data management
 
         dataLoadButton.setSafeOnClickListener {
-            val action = SettingsNavDirections.actionChooseDataUploadMode()
+            val action = SettingsNavDirections.actionDataUploadNav()
             findNavController().navigate(action)
         }
 

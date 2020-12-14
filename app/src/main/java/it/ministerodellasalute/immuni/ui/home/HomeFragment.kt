@@ -265,7 +265,7 @@ class HomeFragment : Fragment(),
 
     private fun openReportPositivity() {
         val action =
-            HomeFragmentDirections.actionChooseDataUploadMode()
+            HomeFragmentDirections.actionDataUploadNav()
         findNavController().navigate(action)
     }
 

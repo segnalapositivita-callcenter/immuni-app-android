@@ -24,7 +24,9 @@ import androidx.lifecycle.observe
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.google.android.material.appbar.AppBarLayout
+import it.ministerodellasalute.immuni.DataUploadDirections
 import it.ministerodellasalute.immuni.R
+import it.ministerodellasalute.immuni.SettingsNavDirections
 import it.ministerodellasalute.immuni.extensions.activity.loading
 import it.ministerodellasalute.immuni.extensions.activity.setLightStatusBar
 import it.ministerodellasalute.immuni.extensions.view.gone
@@ -78,7 +80,7 @@ class OtpFragment : Fragment(R.layout.otp_fragment) {
         verify.setSafeOnClickListener { viewModel.verify() }
 
         knowMore.setSafeOnClickListener {
-            val action = OtpFragmentDirections.actionHowToUploadPositive()
+            val action = SettingsNavDirections.actionHowToUploadPositive()
             findNavController().navigate(action)
         }
 
@@ -114,7 +116,7 @@ class OtpFragment : Fragment(R.layout.otp_fragment) {
         viewModel.navigateToUploadPage.observe(viewLifecycleOwner) {
             it.getContentIfNotHandled()?.let { token ->
                 val action =
-                    OtpFragmentDirections.actionUploadActivity(
+                    DataUploadDirections.actionUploadActivity(
                         OtpToken.fromLogic(token),
                         args.value.navigateUpNeedHelp
                     )

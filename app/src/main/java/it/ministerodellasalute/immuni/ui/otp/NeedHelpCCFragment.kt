@@ -21,6 +21,7 @@ import android.text.method.LinkMovementMethod
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import it.ministerodellasalute.immuni.DataUploadDirections
 import it.ministerodellasalute.immuni.R
 import it.ministerodellasalute.immuni.SettingsNavDirections
 import it.ministerodellasalute.immuni.extensions.utils.coloredClickable
@@ -61,7 +62,7 @@ class NeedHelpCCFragment : Fragment(R.layout.need_help_fragment) {
 
         next.setSafeOnClickListener {
             val action =
-                SettingsNavDirections.actionUploadData(
+                DataUploadDirections.actionUploadData(
                     listOf(
                         getString(R.string.upload_data_warning_message_cc),
                         getString(R.string.upload_data_code_message_cc)

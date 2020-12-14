@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/data_upload"
+    app:startDestination="@id/chooseDataUploadMode">
+
+    <fragment
+        android:id="@+id/chooseDataUploadMode"
+        android:name="it.ministerodellasalute.immuni.ui.otp.ChooseDataUploadMode"
+        android:label="ChooseTypeUpload"
+        tools:layout="@layout/choose_data_upload_mode" />
+
+    <action
+        android:id="@+id/action_choose_data_upload_mode"
+        app:destination="@id/chooseDataUploadMode"
+        app:enterAnim="@anim/slide_in_right"
+        app:exitAnim="@anim/slide_out_left"
+        app:popEnterAnim="@anim/slide_in_left"
+        app:popExitAnim="@anim/slide_out_right" />
+
+    <fragment
+        android:id="@+id/needHelpUploadCCFragment"
+        android:name="it.ministerodellasalute.immuni.ui.otp.NeedHelpCCFragment"
+        android:label="needHelpUploadCC"
+        tools:layout="@layout/need_help_fragment" />
+
+    <action
+        android:id="@+id/action_need_help_upload_cc"
+        app:destination="@id/needHelpUploadCCFragment"
+        app:enterAnim="@anim/slide_in_right"
+        app:exitAnim="@anim/slide_out_left"
+        app:popEnterAnim="@anim/slide_in_left"
+        app:popExitAnim="@anim/slide_out_right" />
+
+    <fragment
+        android:id="@+id/otpFragment"
+        android:name="it.ministerodellasalute.immuni.ui.otp.OtpFragment"
+        android:label="UploadVerification"
+        tools:layout="@layout/otp_fragment">
+        <argument
+            android:name="listDescription"
+            app:argType="string[]"
+            app:nullable="false" />
+        <argument
+            android:name="navigateUpNeedHelp"
+            app:argType="boolean" />
+    </fragment>
+
+    <action
+        android:id="@+id/action_upload_data"
+        app:destination="@id/otpFragment"
+        app:enterAnim="@anim/slide_in_right"
+        app:exitAnim="@anim/slide_out_left"
+        app:popEnterAnim="@anim/slide_in_left"
+        app:popExitAnim="@anim/slide_out_right" />
+
+    <activity
+        android:id="@+id/uploadActivity"
+        android:name="it.ministerodellasalute.immuni.ui.upload.UploadDataActivity"
+        android:label="UploadDataActivity"
+        tools:layout="@layout/upload_data_fragment">
+        <argument
+            android:name="token"
+            app:argType="it.ministerodellasalute.immuni.ui.otp.OtpToken"
+            app:nullable="false" />
+        <argument
+            android:name="navigateUpNeedHelp"
+            app:argType="boolean" />
+    </activity>
+
+    <action
+        android:id="@+id/action_upload_activity"
+        app:destination="@id/uploadActivity" />
+
+</navigation>

@@ -20,6 +20,7 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import it.ministerodellasalute.immuni.DataUploadDirections
 import it.ministerodellasalute.immuni.R
 import it.ministerodellasalute.immuni.SettingsNavDirections
 import it.ministerodellasalute.immuni.extensions.activity.setLightStatusBar
@@ -50,7 +51,7 @@ class ChooseDataUploadMode : Fragment(R.layout.choose_data_upload_mode) {
 
         nextOS.setSafeOnClickListener {
             val action =
-                SettingsNavDirections.actionUploadData(
+                DataUploadDirections.actionUploadData(
                     listOf(
                         getString(R.string.upload_data_warning_message),
                         getString(R.string.upload_data_code_message)
@@ -62,7 +63,7 @@ class ChooseDataUploadMode : Fragment(R.layout.choose_data_upload_mode) {
 
         nextCC.setSafeOnClickListener {
             val action =
-                SettingsNavDirections.actionNeedHelpUploadCc()
+                DataUploadDirections.actionNeedHelpUploadCc()
             findNavController().navigate(action)
         }
     }

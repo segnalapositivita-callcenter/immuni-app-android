@@ -22,6 +22,7 @@
 
     <include app:graph="@navigation/webview" />
     <include app:graph="@navigation/howitworks" />
+    <include app:graph="@navigation/data_upload" />
 
     <fragment
         android:id="@+id/homeFragment"
@@ -126,80 +127,8 @@
         android:id="@+id/action_countries_of_interest"
         app:destination="@id/countriesOfInterestActivity" />
 
-    <fragment
-        android:id="@+id/chooseDataUploadMode"
-        android:name="it.ministerodellasalute.immuni.ui.otp.ChooseDataUploadMode"
-        android:label="ChooseTypeUpload"
-        tools:layout="@layout/choose_data_upload_mode" />
-
     <action
-        android:id="@+id/action_choose_data_upload_mode"
-        app:destination="@id/chooseDataUploadMode"
-        app:enterAnim="@anim/slide_in_right"
-        app:exitAnim="@anim/slide_out_left"
-        app:popEnterAnim="@anim/slide_in_left"
-        app:popExitAnim="@anim/slide_out_right" />
+        android:id="@+id/action_data_upload_nav"
+        app:destination="@+id/data_upload" />
 
-    <fragment
-        android:id="@+id/needHelpUploadCCFragment"
-        android:name="it.ministerodellasalute.immuni.ui.otp.NeedHelpCCFragment"
-        android:label="needHelpUploadCC"
-        tools:layout="@layout/need_help_fragment" />
-
-    <action
-        android:id="@+id/action_need_help_upload_cc"
-        app:destination="@id/needHelpUploadCCFragment"
-        app:enterAnim="@anim/slide_in_right"
-        app:exitAnim="@anim/slide_out_left"
-        app:popEnterAnim="@anim/slide_in_left"
-        app:popExitAnim="@anim/slide_out_right" />
-
-    <fragment
-        android:id="@+id/otpFragment"
-        android:name="it.ministerodellasalute.immuni.ui.otp.OtpFragment"
-        android:label="UploadVerification"
-        tools:layout="@layout/otp_fragment">
-        <argument
-            android:name="listDescription"
-            app:argType="string[]"
-            app:nullable="false" />
-        <argument
-            android:name="navigateUpNeedHelp"
-            app:argType="boolean" />
-    </fragment>
-
-    <action
-        android:id="@+id/action_upload_data"
-        app:destination="@id/otpFragment"
-        app:enterAnim="@anim/slide_in_right"
-        app:exitAnim="@anim/slide_out_left"
-        app:popEnterAnim="@anim/slide_in_left"
-        app:popExitAnim="@anim/slide_out_right" />
-
-    <dialog
-        android:id="@+id/howToUploadPositive"
-        android:name="it.ministerodellasalute.immuni.ui.howtouploadpositive.HowToUploadPositiveDialogFragment"
-        tools:layout="@layout/how_to_upload_positive_dialog" />
-
-    <action
-        android:id="@+id/action_how_to_upload_positive"
-        app:destination="@id/howToUploadPositive" />
-
-    <activity
-        android:id="@+id/uploadActivity"
-        android:name="it.ministerodellasalute.immuni.ui.upload.UploadDataActivity"
-        android:label="UploadDataActivity"
-        tools:layout="@layout/upload_data_fragment">
-        <argument
-            android:name="token"
-            app:argType="it.ministerodellasalute.immuni.ui.otp.OtpToken"
-            app:nullable="false" />
-        <argument
-            android:name="navigateUpNeedHelp"
-            app:argType="boolean" />
-    </activity>
-
-    <action
-        android:id="@+id/action_upload_activity"
-        app:destination="@id/uploadActivity" />
 </navigation>
