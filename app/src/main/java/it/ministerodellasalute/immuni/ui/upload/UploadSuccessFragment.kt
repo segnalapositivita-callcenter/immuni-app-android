@@ -20,8 +20,11 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.navArgs
 import it.ministerodellasalute.immuni.R
 import it.ministerodellasalute.immuni.extensions.activity.setLightStatusBar
+import it.ministerodellasalute.immuni.ui.otp.ChooseDataUploadMode
+import it.ministerodellasalute.immuni.ui.otp.NeedHelpCCFragment
 import it.ministerodellasalute.immuni.ui.otp.OtpFragment
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -39,7 +42,12 @@ class UploadSuccessFragment : Fragment(R.layout.upload_data_success_fragment) {
     }
 
     private fun close() {
+        val args = navArgs<UploadSuccessFragmentArgs>()
+        if (args.value.navigateUpNeedHelp) {
+            NeedHelpCCFragment.NAVIGATE_UP = true
+        }
         OtpFragment.NAVIGATE_UP = true
+        ChooseDataUploadMode.NAVIGATE_UP = true
         activity?.finish()
     }
 }

@@ -33,9 +33,9 @@ import it.ministerodellasalute.immuni.ui.dialog.ConfirmationDialogListener
 import it.ministerodellasalute.immuni.ui.dialog.openConfirmationDialog
 import it.ministerodellasalute.immuni.ui.otp.OtpToken
 import it.ministerodellasalute.immuni.util.ProgressDialogFragment
-import kotlin.math.abs
 import kotlinx.android.synthetic.main.upload_data_fragment.*
 import org.koin.androidx.viewmodel.ext.android.getViewModel
+import kotlin.math.abs
 
 class UploadDataFragment : Fragment(R.layout.upload_data_fragment), ConfirmationDialogListener {
 
@@ -81,12 +81,16 @@ class UploadDataFragment : Fragment(R.layout.upload_data_fragment), Confirmation
 
         viewModel.loading.observe(viewLifecycleOwner, Observer {
             (activity as? AppCompatActivity)?.loading(it, ProgressDialogFragment(), Bundle().apply {
-                putString(ProgressDialogFragment.MESSAGE, getString(R.string.upload_data_send_data_loading))
+                putString(
+                    ProgressDialogFragment.MESSAGE,
+                    getString(R.string.upload_data_send_data_loading)
+                )
             })
         })
 
         viewModel.uploadSuccess.observe(viewLifecycleOwner, Observer {
-            val action = UploadDataFragmentDirections.actionGlobalSuccess()
+            val action =
+                UploadDataFragmentDirections.actionGlobalSuccess(args.value.navigateUpNeedHelp)
             findNavController().navigate(action)
         })
 

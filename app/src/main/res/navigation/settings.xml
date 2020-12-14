@@ -35,10 +35,23 @@
         android:label="ChooseTypeUpload"
         tools:layout="@layout/choose_data_upload_mode" />
 
-
     <action
         android:id="@+id/action_choose_data_upload_mode"
         app:destination="@id/chooseDataUploadMode"
+        app:enterAnim="@anim/slide_in_right"
+        app:exitAnim="@anim/slide_out_left"
+        app:popEnterAnim="@anim/slide_in_left"
+        app:popExitAnim="@anim/slide_out_right" />
+
+    <fragment
+        android:id="@+id/needHelpUploadCCFragment"
+        android:name="it.ministerodellasalute.immuni.ui.otp.NeedHelpCCFragment"
+        android:label="needHelpUploadCC"
+        tools:layout="@layout/need_help_fragment" />
+
+    <action
+        android:id="@+id/action_need_help_upload_cc"
+        app:destination="@id/needHelpUploadCCFragment"
         app:enterAnim="@anim/slide_in_right"
         app:exitAnim="@anim/slide_out_left"
         app:popEnterAnim="@anim/slide_in_left"
@@ -50,9 +63,12 @@
         android:label="UploadVerification"
         tools:layout="@layout/otp_fragment">
         <argument
-            android:name="healthcareAuthorizationWarning"
-            app:argType="string"
+            android:name="listDescription"
+            app:argType="string[]"
             app:nullable="false" />
+        <argument
+            android:name="navigateUpNeedHelp"
+            app:argType="boolean" />
     </fragment>
 
     <action
@@ -80,6 +96,9 @@
             android:name="token"
             app:argType="it.ministerodellasalute.immuni.ui.otp.OtpToken"
             app:nullable="false" />
+        <argument
+            android:name="navigateUpNeedHelp"
+            app:argType="boolean" />
     </activity>
 
     <action
@@ -141,4 +160,5 @@
     <action
         android:id="@+id/action_countries_of_interest"
         app:destination="@id/countriesOfInterestActivity" />
+
 </navigation>

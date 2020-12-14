@@ -57,8 +57,8 @@ class OtpFragment : Fragment(R.layout.otp_fragment) {
         super.onViewCreated(view, savedInstanceState)
 
         val args = navArgs<OtpFragmentArgs>()
-        healthcareAuthorizationWarning.text = args.value.healthcareAuthorizationWarning
-
+        healthcareAuthorizationWarning.text = args.value.listDescription[0]
+        codeInstruction.text = args.value.listDescription[1]
 
         (activity as? AppCompatActivity)?.setLightStatusBar(resources.getColor(R.color.background_darker))
         // Warning: if you get the sharedViewModel, then every time you create this fragment from
@@ -114,7 +114,10 @@ class OtpFragment : Fragment(R.layout.otp_fragment) {
         viewModel.navigateToUploadPage.observe(viewLifecycleOwner) {
             it.getContentIfNotHandled()?.let { token ->
                 val action =
-                    OtpFragmentDirections.actionUploadActivity(OtpToken.fromLogic(token))
+                    OtpFragmentDirections.actionUploadActivity(
+                        OtpToken.fromLogic(token),
+                        args.value.navigateUpNeedHelp
+                    )
                 findNavController().navigate(action)
 
                 lifecycleScope.launch {

@@ -15,16 +15,22 @@
 
 package it.ministerodellasalute.immuni.ui.otp
 
+import android.annotation.SuppressLint
 import android.os.Bundle
+import android.text.method.LinkMovementMethod
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import it.ministerodellasalute.immuni.R
 import it.ministerodellasalute.immuni.SettingsNavDirections
+import it.ministerodellasalute.immuni.extensions.utils.coloredClickable
+import it.ministerodellasalute.immuni.extensions.view.getColorCompat
 import it.ministerodellasalute.immuni.extensions.view.setSafeOnClickListener
-import kotlinx.android.synthetic.main.choose_data_upload_mode.*
+import it.ministerodellasalute.immuni.util.startPhoneDial
+import kotlinx.android.synthetic.main.need_help_fragment.*
+import kotlinx.android.synthetic.main.support_dialog.contactSupport
 
-class ChooseDataUploadMode : Fragment(R.layout.choose_data_upload_mode) {
+class NeedHelpCCFragment : Fragment(R.layout.need_help_fragment) {
 
     companion object {
         var NAVIGATE_UP = false
@@ -41,25 +47,27 @@ class ChooseDataUploadMode : Fragment(R.layout.choose_data_upload_mode) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        navigationIcon.setSafeOnClickListener {
-            findNavController().popBackStack()
-        }
+        contactSupport.movementMethod = LinkMovementMethod.getInstance()
+        @SuppressLint("SetTextI18n")
+        contactSupport.text = "{${"800 91 24 91"}}"
+            .coloredClickable(
+                color = requireContext().getColorCompat(R.color.colorPrimary),
+                bold = true
+            ) {
+                startPhoneDial("800 91 24 91")
+            }
 
-        nextOS.setSafeOnClickListener {
+        navigationIcon.setSafeOnClickListener { findNavController().popBackStack() }
+
+        next.setSafeOnClickListener {
             val action =
                 SettingsNavDirections.actionUploadData(
                     listOf(
-                        getString(R.string.upload_data_warning_message),
-                        getString(R.string.upload_data_code_message)
+                        getString(R.string.upload_data_warning_message_cc),
+                        getString(R.string.upload_data_code_message_cc)
                     ).toTypedArray(),
-                    false
+                    true
                 )
-            findNavController().navigate(action)
-        }
-
-        nextCC.setSafeOnClickListener {
-            val action =
-                SettingsNavDirections.actionNeedHelpUploadCc()
             findNavController().navigate(action)
         }
     }

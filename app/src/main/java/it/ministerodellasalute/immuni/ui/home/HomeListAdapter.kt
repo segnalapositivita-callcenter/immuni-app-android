@@ -87,6 +87,8 @@ class HomeListAdapter(
 
     inner class CountriesOfInterestVH(v: View) : RecyclerView.ViewHolder(v)
 
+    inner class ReportPositivityVH(v: View) : RecyclerView.ViewHolder(v)
+
     inner class DisableExposureApiVH(v: View) : RecyclerView.ViewHolder(v) {
         val disableExposureApi: Button = v.findViewById(R.id.disableExposureApi)
 
@@ -109,10 +111,11 @@ class HomeListAdapter(
         val (layout, cardType) = when (viewType) {
             0 -> Pair(R.layout.home_protection_state_card, ProtectionCardVH::class)
             1 -> Pair(R.layout.home_section_header_item, SectionHeaderVH::class)
-            2 -> Pair(R.layout.home_information_how_app_works_card, InformationHowAppWorksVH::class)
-            3 -> Pair(R.layout.home_information_self_care_card, InformationSelfCareVH::class)
-            4 -> Pair(R.layout.home_countries_of_interest, CountriesOfInterestVH::class)
-            5 -> Pair(R.layout.home_disable_exposure_api, DisableExposureApiVH::class)
+            2 -> Pair(R.layout.home_report_positivity_card, ReportPositivityVH::class)
+            3 -> Pair(R.layout.home_information_how_app_works_card, InformationHowAppWorksVH::class)
+            4 -> Pair(R.layout.home_information_self_care_card, InformationSelfCareVH::class)
+            5 -> Pair(R.layout.home_countries_of_interest, CountriesOfInterestVH::class)
+            6 -> Pair(R.layout.home_disable_exposure_api, DisableExposureApiVH::class)
             else -> error("Unhandled viewType $viewType")
         }
 
@@ -197,10 +200,11 @@ class HomeListAdapter(
         return when (items[position]) {
             is ProtectionCard -> 0
             is SectionHeader -> 1
-            is HowItWorksCard -> 2
-            is SelfCareCard -> 3
-            is CountriesOfInterestCard -> 4
-            is DisableExposureApi -> 5
+            is ReportPositivity -> 2
+            is HowItWorksCard -> 3
+            is SelfCareCard -> 4
+            is CountriesOfInterestCard -> 5
+            is DisableExposureApi -> 6
         }
     }
 

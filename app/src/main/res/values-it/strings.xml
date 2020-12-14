@@ -385,4 +385,18 @@ Sistema operativo: iOS 13.5.1; Modello iPhone XS; Notifiche di esposizione: Atti
   <string name="countries_of_interest_title">Stai andando in uno o più di questi Paesi europei?</string>
   <string name="countries_of_interest_limit_dialog_title">Limite selezione superato</string>
   <string name="countries_of_interest_limit_dialog_message">Puoi selezionare fino ad un massimo di 3 Paesi. La tua selezione sarà valida e non modificabile per 14 giorni</string>
+  <string name="report_positivity_title_OS">Sei stato contattato da un Operatore Sanitario?</string>
+  <string name="report_positivity_description_OS">Segui la procedura per segnalare la tua positività</string>
+  <string name="continue_label">Prosegui</string>
+  <string name="report_positivity_title_CC">Vuoi segnalare la tua positività in autonomia?</string>
+  <string name="report_positivity_description_CC">Inserisci i tuoi dati direttamente in app con il supporto del call center che ti aiuterà durante la procedura</string>
+  <string name="description_CC">Contatta il call center per ricevere assistenza telefonicamente. Ricordati di avere a portata di mano</string>
+  <string name="need_help_item_cun"><b>Codice CUN presente nel tuo referto.</b></string>
+  <string name="need_help_item_health_insurance_card"><b>Tessera Sanitaria</b> per comunicare le ultime 8 cifre che permettono di salvaguardare la tua privacy</string>
+  <string name="need_help_symptoms_date"><b>Data dell\'inizio dei primi sintomi</b></string>
+  <string name="need_help_phone_title">Chiama il call center</string>
+  <string name="need_help_phone_description">Numero attivo h24</string>
+  <string name="upload_data_warning_message_cc">Questa funzione richiede l\’assistenza del call center che ti guiderà nella procedura di segnalazione.</string>
+  <string name="upload_data_code_message_cc">Comunica il codice all\'operatore del call center:</string>
+  <string name="home_report_positivity">Segnala positività in autonomia</string>
 </resources>

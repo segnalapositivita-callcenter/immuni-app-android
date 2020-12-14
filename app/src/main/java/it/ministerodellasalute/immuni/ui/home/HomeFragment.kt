@@ -40,6 +40,7 @@ import kotlinx.android.synthetic.main.home_fragment.*
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.getSharedViewModel
 
+
 class HomeFragment : Fragment(),
     HomeClickListener {
 
@@ -232,6 +233,9 @@ class HomeFragment : Fragment(),
             }
             is SectionHeader -> {
             }
+            ReportPositivity -> {
+                openReportPositivity()
+            }
             HowItWorksCard -> {
                 openHowItWorks()
             }
@@ -256,6 +260,12 @@ class HomeFragment : Fragment(),
     private fun openOnboarding() {
         val action =
             HomeFragmentDirections.actionOnboardingActivity(false)
+        findNavController().navigate(action)
+    }
+
+    private fun openReportPositivity() {
+        val action =
+            HomeFragmentDirections.actionChooseDataUploadMode()
         findNavController().navigate(action)
     }
 
