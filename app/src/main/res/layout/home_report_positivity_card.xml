@@ -41,7 +41,7 @@
             android:scaleType="matrix"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_new" />
+            app:srcCompat="@drawable/ic_new_white" />
 
         <it.ministerodellasalute.immuni.ui.view.ImageScaleView
             android:id="@+id/icon"
@@ -63,8 +63,8 @@
             android:layout_marginStart="30dp"
             android:layout_marginTop="45dp"
             android:layout_marginEnd="30dp"
-            android:text="@string/home_report_positivity"
-            android:textColor="@color/colorPrimary"
+            android:text="@string/home_report_positivity_card_title"
+            android:textColor="@color/background"
             app:layout_constraintBottom_toTopOf="@+id/subtitle"
             app:layout_constraintEnd_toStartOf="@+id/icon"
             app:layout_constraintHorizontal_bias="0.5"
@@ -80,7 +80,7 @@
             android:layout_marginTop="8dp"
             android:layout_marginBottom="45dp"
             android:text="@string/home_view_info_button_title"
-            android:textColor="@color/colorPrimary"
+            android:textColor="@color/background"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="@+id/title"
             app:layout_constraintTop_toBottomOf="@+id/title"

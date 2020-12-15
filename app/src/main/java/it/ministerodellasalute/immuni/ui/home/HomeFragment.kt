@@ -233,9 +233,6 @@ class HomeFragment : Fragment(),
             }
             is SectionHeader -> {
             }
-            ReportPositivity -> {
-                openReportPositivity()
-            }
             HowItWorksCard -> {
                 openHowItWorks()
             }
@@ -244,6 +241,9 @@ class HomeFragment : Fragment(),
             }
             CountriesOfInterestCard -> {
                 openCountriesOfInterest()
+            }
+            ReportPositivityCard -> {
+                openReportPositivity()
             }
             is DisableExposureApi -> {
                 openDisableExposureApi()
@@ -263,12 +263,6 @@ class HomeFragment : Fragment(),
         findNavController().navigate(action)
     }
 
-    private fun openReportPositivity() {
-        val action =
-            HomeFragmentDirections.actionDataUploadNav()
-        findNavController().navigate(action)
-    }
-
     private fun openHowItWorks() {
         val action =
             HomeFragmentDirections.actionHowitworks(
@@ -284,6 +278,12 @@ class HomeFragment : Fragment(),
 
     private fun openCountriesOfInterest() {
         val action = HomeFragmentDirections.actionCountriesOfInterest()
+        findNavController().navigate(action)
+    }
+
+    private fun openReportPositivity() {
+        val action =
+            HomeFragmentDirections.actionDataUploadNav()
         findNavController().navigate(action)
     }
 }
