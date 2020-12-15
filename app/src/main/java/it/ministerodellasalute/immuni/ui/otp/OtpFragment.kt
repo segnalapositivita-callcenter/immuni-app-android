@@ -80,7 +80,7 @@ class OtpFragment : Fragment(R.layout.otp_fragment) {
         verify.setSafeOnClickListener { viewModel.verify() }
 
         knowMore.setSafeOnClickListener {
-            val action = SettingsNavDirections.actionHowToUploadPositive()
+            val action = DataUploadDirections.actionHowToUploadPositive()
             findNavController().navigate(action)
         }
 
